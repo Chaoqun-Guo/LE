@@ -1,24 +1,15 @@
 # 1 Docker & Docker-compose
-
 **Notice! All projects are deployed on docker, please move to step regarding the installation and use of docker and docker-compose**
 
 ## 1.1 Docker
-
-**[docker](https://docs.docker.com/)**
-
+[docker](https://docs.docker.com/)
 ## 1.2 Docker-compose
-
-**[docker-compose](https://docs.docker.com/)**
-
-
-
+[docker-compose](https://docs.docker.com/)
 # 2 Atlas-Hive-docker
-
-**Docker-compose for atlas managing hive metadata and lineage: *[References](./atlas-hive-docker-main/README.md)***
+Docker-compose for atlas managing hive metadata and lineage: **[References](./atlas-hive-docker-main/README.md)**
 
 ## 2.1 Prerequisite
-
-***Build atlas***
+**Build atlas**
 
 Download atlas source code:
 
@@ -27,77 +18,66 @@ git clone https://github.com/apache/atlas.git
 cd atlas
 ```
 
-Checkout version ***release-2.1.0-rc3***
+Checkout version **release-2.1.0-rc3**
 
 ```bash
 git checkout release-2.1.0-rc3
-```
-
-Modify some code that conflicts with latest hive:
+````
+Modify some code that conflicts with the latest hive:
 
 File location:
 
 ```bash
 vim addons/hive-bridge/src/main/java/org/apache/atlas/hive/bridge/HiveMetaStoreBridge.java
 ```
-
 Comment out line 577-581:
 
 ```java
     public static String getDatabaseName(Database hiveDB) {
         String dbName      = hiveDB.getName().toLowerCase();
         // String catalogName = hiveDB.getCatalogName() != null ? hiveDB.getCatalogName().toLowerCase() : null;
-
         // if (StringUtils.isNotEmpty(catalogName) && !StringUtils.equals(catalogName, DEFAULT_METASTORE_CATALOG)) {
         //     dbName = catalogName + SEP + dbName;
         // }
         return dbName;
     }
 ```
-
 Build:
 
 ```bash
 mvn clean -DskipTests package -Pdist,embedded-hbase-solr
 ```
 
-Copy necessary files into ***atlas-hive-docker*** root directory:
+Copy necessary files into **atlas-hive-docker** root directory:
 
 ```bash
 cp -r distro/target/apache-atlas-2.1.0-hive-hook/apache-atlas-hive-hook-2.1.0 <ROOT_OF_atlas-hive-docker_PROJECT>
 ```
+#### *However, I had done this for you, all you need to do is just make it!
 
-**Make docker images**
+***Make docker images***
 
 Use make:
 
 ```bash
 make
 ```
-
-
-#### *However, I had done this for you, all you need to do is just run it!
-
 ## 2.2 Run
-
 ***Start services***
 
-<code>cd</code>to this projects's root directory, then start servieces using <code>docker-compose</code>
+<code>cd</code>to project's root directory, then start services using <code>docker-compose</code>
 
 ```bash
 docker-compose up -d
 ```
-
 ***Login atlas using Web UI***
 
-Open <code>http://localhost:21000</code> in your local browser and us <code>admin</code>/<code>admin</code> to login
+Open http://localhost:21000 in your local browser and use <code>admin</code>/<code>admin</code> to login **Run some Hive SQLs**
 
-***Run some Hive SQLs***
-
-<code>bash</code> into the hive container 
+bash into the hive container
 
 ```bash
-docker-compose exec hive-servers bash
+docker-compose exec hive-server bash
 ```
 
 Start beeline
@@ -108,11 +88,10 @@ Start beeline
 
 Run some statements containing certain lineage info, e.g.:
 
-```hive
+```sql
 create table t(i int);
 create view v as select * from t;
 ```
-
 ***Check lineage in Web UI***
 
 Now refresh the atlas Web UI page, you'll see a bunch of hive entities captured, each of which containing the lineage info.
@@ -126,17 +105,13 @@ Now refresh the atlas Web UI page, you'll see a bunch of hive entities captured,
 [Docker atlas](https://github.com/sburn/docker-apache-atlas)
 
 [Docker hive](https://github.com/big-data-europe/docker-hive)
-
-
-
-# 3 Amundsen
+# 3 Amundsen-neo4j
 
 ## 3.1 Installation
 
-***Bootstrap a default version of Amundsen using Docker [Reference](./amundsen-main/docs/installation.md)***
+Bootstrap a default version of Amundsen using Docker **[Reference](./amundsen-main/docs/installation.md)**
 
 The following instructions are for setting up a version of Amundsen using Docker.
-
 1. Make sure you have at least 3GB available to docker. Install <code>docker</code> and <code>docker-compose</code>
 
 2. Clone  [amundsen repo]( https://github.com/amundsen-io/amundsen) and its submodules by running:
@@ -152,24 +127,21 @@ git clone --recursive https://github.com/amundsen-io/amundsen.git
 ```bash
 #cp docker-compse.yml and rename it docker-compose-neo4j.yml
 cp docker-compose.yml docker-compoes-neo4j.yml
-
 #For Neo4j Backend
 docker-compose -f docker-compose-neo4j.yml up -d
-
 #For Atlas Backend
 docker-compose -f docker-compose-atlas.yml up -d 
 ```
+***USEFUL! Troubleshooting!***
 
-**USEFUL!!!**
+how to change heap memory for ElasticSearch and Docker engine memory allocation.
 
-***Troubleshooting:*** how to change heap memory for ElasticSearch and Docker engine memory allocation.
-
-**If** the docker container doesn't have enough heap memory for Elastic Search, <code>es_amundsen</code> will fail during docker-compose.
+**If** the docker container doesn't have enough heap memory for ElasticSearch, <code>es_amundsen</code> will fail during docker-compose.
 
 > Ⅰ. <code>docker-compose error: es_amundsen | [1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</code>
-
+> 
 > Ⅱ. Increase the heap memory [detailed instructions here](https://www.elastic.co/guide/en/elasticsearch/reference/7.1/docker.html#docker-cli-run-prod-mode):
->
+> 
 > > a. Edit <code>/etc/sysctl.conf</code>
 > >
 > > b. Make entry <code>vm.max_map_count=262144</code>. Save and exit.
@@ -224,11 +196,10 @@ Traceback (most recent call last):File "/home/ubuntu/amundsen/amundsendatabuilde
 
 ## 3.2 Verify setup
 
-1. You can verify dummy data has been ingested into Neo4j by by visiting http://localhost:7474/browser/ and run MATCH (n:Table) RETURN n LIMIT 25 in the query box. You should see few tables.
+1. You can verify dummy data has been ingested into Neo4j by visiting http://localhost:7474/browser/ and run MATCH (n:Table) RETURN n LIMIT 25 in the query box. You should see few tables.
 
 2. You can verify the data has been loaded into the metadataservice by visiting:
 
    Ⅰ.http://localhost:5000/table_detail/gold/hive/test_schema/test_table1
 
    Ⅱ.http://localhost:5000/table_detail/gold/dynamo/test_schema/test_table2
-
