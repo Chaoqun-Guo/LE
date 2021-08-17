@@ -56,9 +56,10 @@ services:
       - "9083:9083"
   hive-metastore-postgresql:
     image: chaoqunguo/hive-metastore-postgresql:2.3.0
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
   atlas:
     image: chaoqunguo/atlas
-    # image: sburn/apache-atlas
     ports:
       - "21000:21000"
       - "9026:9026"
