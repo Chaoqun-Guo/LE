@@ -53,3 +53,5 @@ atlas-amundsen/amundsen-main/jest
 # Helm
 **/amundsen-kube-helm/templates/helm/charts/*
 **/amundsen-kube-helm/templates/helm/requirements.lock
+
+!./atlas-amundsen/atlas-hive-docker-main/sqoop-*
