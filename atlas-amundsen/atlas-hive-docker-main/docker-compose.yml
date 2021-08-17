@@ -37,7 +37,7 @@ services:
     ports:
       - "50075:50075"
   hive-server:
-    image: zanmato1984/hive
+    image: ChaoqunGuo/hive
     env_file:
       - ./hadoop-hive.env
     environment:
@@ -57,7 +57,7 @@ services:
   hive-metastore-postgresql:
     image: bde2020/hive-metastore-postgresql:2.3.0
   atlas:
-    image: zanmato1984/atlas
+    image: ChaoqunGuo/atlas
     # image: sburn/apache-atlas
     ports:
       - "21000:21000"
