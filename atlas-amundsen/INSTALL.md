@@ -75,9 +75,9 @@ Use make:
 make
 ```
 
-<h3>
-    <center>==However, I had done this for you, all you need to do is just run it!==</center>
-</h3>
+
+#### ==However, I had done this for you, all you need to do is just run it!==
+
 ## 2.2 Run
 
 ***Start services***
@@ -145,7 +145,7 @@ The following instructions are for setting up a version of Amundsen using Docker
 git clone --recursive https://github.com/amundsen-io/amundsen.git
 ```
 
-<h3><center>==However, I had done this for you, all you need to do is just run it!==</center></h3>
+#### ==However, I had done this for you, all you need to do is just run it!==
 
 3. Enter the cloned directory and run below:
 
