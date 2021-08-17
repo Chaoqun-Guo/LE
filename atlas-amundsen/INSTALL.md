@@ -14,7 +14,7 @@
 
 # 2 Atlas-Hive-docker
 
-**#Docker-compose for atlas managing hive metadata and lineage**
+**Docker-compose for atlas managing hive metadata and lineage: *[References](./atlas-hive-docker-main/README.md)***
 
 ## 2.1 Prerequisite
 
@@ -76,7 +76,7 @@ make
 ```
 
 
-#### ==However, I had done this for you, all you need to do is just run it!==
+#### *However, I had done this for you, all you need to do is just run it!
 
 ## 2.2 Run
 
@@ -133,7 +133,7 @@ Now refresh the atlas Web UI page, you'll see a bunch of hive entities captured,
 
 ## 3.1 Installation
 
-***Bootstrap a default version of Amundsen using Docker***
+***Bootstrap a default version of Amundsen using Docker [Reference](./amundsen-main/docs/installation.md)***
 
 The following instructions are for setting up a version of Amundsen using Docker.
 
@@ -145,7 +145,7 @@ The following instructions are for setting up a version of Amundsen using Docker
 git clone --recursive https://github.com/amundsen-io/amundsen.git
 ```
 
-#### ==However, I had done this for you, all you need to do is just run it!==
+#### *However, I had done this for you, all you need to do is just run it!
 
 3. Enter the cloned directory and run below:
 
@@ -160,7 +160,7 @@ docker-compose -f docker-compose-neo4j.yml up -d
 docker-compose -f docker-compose-atlas.yml up -d 
 ```
 
-***USEFUL!!!***
+**USEFUL!!!**
 
 ***Troubleshooting:*** how to change heap memory for ElasticSearch and Docker engine memory allocation.
 
@@ -207,7 +207,7 @@ Traceback (most recent call last):File "/home/ubuntu/amundsen/amundsendatabuilde
 
    b. <code>sample_data_loader</code> python script included in <code>examples/</code> directory uses elasticsearch client, pyhocon and other libraries. Install the dependencies in a virtual env and run the script by following the commands below:
 
-```python
+```bash
  $ python3 -m venv venv
  $ source venv/bin/activate
  $ pip3 install --upgrade pip
