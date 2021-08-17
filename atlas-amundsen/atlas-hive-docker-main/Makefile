@@ -1,3 +1,3 @@
 build:
-	docker build -f hive.Dockerfile -t chaoqun-guo/hive ./
-	docker build -f atlas.Dockerfile -t chaoqun-guo/atlas ./
+	docker build -f hive.Dockerfile -t chaoqunguo/hive ./
+	docker build -f atlas.Dockerfile -t chaoqunguo/atlas ./

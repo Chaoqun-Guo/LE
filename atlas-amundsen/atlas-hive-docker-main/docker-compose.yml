@@ -6,7 +6,7 @@ services:
     ports:
       - "2181:2181"
   kafka:
-    image: wurstmeister/kafka:latest
+    image: chaoqunguo/kafka:latest
     environment:
       KAFKA_ADVERTISED_HOST_NAME: "kafka"
       KAFKA_ZOOKEEPER_CONNECT: "zk:2181"
@@ -17,7 +17,7 @@ services:
     depends_on:
       - "zk"
   namenode:
-    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    image: chaoqunguo/hadoop-namenode:2.0.0-hadoop2.7.4-java8
     volumes:
       - namenode:/hadoop/dfs/name
     environment:
@@ -27,7 +27,7 @@ services:
     ports:
       - "50070:50070"
   datanode:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    image: chaoqunguo/hadoop-datanode:2.0.0-hadoop2.7.4-java8
     volumes:
       - datanode:/hadoop/dfs/data
     env_file:
@@ -37,7 +37,7 @@ services:
     ports:
       - "50075:50075"
   hive-server:
-    image: ChaoqunGuo/hive
+    image: chaoqunguo/hive
     env_file:
       - ./hadoop-hive.env
     environment:
@@ -46,7 +46,7 @@ services:
     ports:
       - "10000:10000"
   hive-metastore:
-    image: bde2020/hive:2.3.2-postgresql-metastore
+    image: chaoqunguo/hive:2.3.2-postgresql-metastore
     env_file:
       - ./hadoop-hive.env
     command: /opt/hive/bin/hive --service metastore
@@ -55,9 +55,9 @@ services:
     ports:
       - "9083:9083"
   hive-metastore-postgresql:
-    image: bde2020/hive-metastore-postgresql:2.3.0
+    image: chaoqunguo/hive-metastore-postgresql:2.3.0
   atlas:
-    image: ChaoqunGuo/atlas
+    image: chaoqunguo/atlas
     # image: sburn/apache-atlas
     ports:
       - "21000:21000"
