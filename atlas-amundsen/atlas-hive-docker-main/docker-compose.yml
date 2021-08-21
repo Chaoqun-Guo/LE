@@ -58,6 +58,7 @@ services:
     image: chaoqunguo/hive-metastore-postgresql:2.3.0
     volumes:
       - postgresql_data:/var/lib/postgresql/data
+
   atlas:
     image: chaoqunguo/atlas
     ports:
@@ -72,6 +73,7 @@ services:
 volumes:
   namenode:
   datanode:
+  postgresql_data:
 
 networks:
   default:

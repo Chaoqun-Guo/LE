@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    networks:
+      - default
+    container_name: mysql
+
+    command:
+      [
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      #==========================
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: db_test
+      #==========================
+    ports:
+      - 3306:3306
+      - 33060:33060
+    volumes:
+      - ./data/:/var/lib/mysql
+      - ./etc/mysql:/etc/mysql
+
+networks:
+  default:
+    external: true
+    name: common
