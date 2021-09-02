@@ -1,4 +1,4 @@
-# Amundsen-neo4j
+# Amundsen
 
 ## 1.Installation
 

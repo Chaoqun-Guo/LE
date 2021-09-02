@@ -8,10 +8,10 @@ git clone https://github.com/Chaoqun-Guo/LE.git
 
 ## [Docker](./docker)
 
-## [Atlas-Hive-Hadoop](./atlas)
+## [Atlas](./atlas)
 
 ## [Superset](./superset)
 
-## [Amundsen-neo4j](./amundsen/)
+## [Amundsen](./amundsen)
 
 

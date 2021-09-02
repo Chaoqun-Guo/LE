@@ -1,4 +1,4 @@
-# Atlas-Hive-docker
+# Atlas
 
 Docker-compose for atlas managing hive metadata and
 lineage: [References](https://github.com/Chaoqun-Guo/atlas-hive-docker)
