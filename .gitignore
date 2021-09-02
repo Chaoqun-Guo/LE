@@ -1,9 +1,3 @@
-# Docker data files
-atlas-amundsen/amundsen-main/example/backup/
-atlas-amundsen/amundsen-main/example/docker/neo4j/plugins/
-atlas-amundsen/amundsen-main/example/docker/es_data*
-atlas-amundsen/amundsen-main/.local/
-
 # Dev
 **/.idea/
 **/site/
@@ -30,28 +24,10 @@ atlas-amundsen/amundsen-main/.local/
 # macOS
 **/.DS_Store
 
-# Front-end dev
-atlas-amundsen/amundsen-main/frontend/amundsen_application/.*/
-atlas-amundsen/amundsen-main/frontend/amundsen_application/static/dist/
-**/npm-debug.log
-atlas-amundsen/amundsen-main/frontend/**/env
-atlas-amundsen/amundsen-main/node_modules/
-atlas-amundsen/amundsen-main/jest
-**/.coverage
-**/coverage
-**/coverage.xml
-**/htmlcov/**
-
 # IntelliJ
 **.iml
 **/.idea
 
-# Auto-generated source maps from PyCharm
-**/static/dist/webpack.*
-**/static/dist/js/
-
-# Helm
-**/amundsen-kube-helm/templates/helm/charts/*
-**/amundsen-kube-helm/templates/helm/requirements.lock
-
-!./atlas-amundsen/atlas-hive-docker-main/sqoop-*
+# mysql data and config
+./mysql/data
+./mysql/etc

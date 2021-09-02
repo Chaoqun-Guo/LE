@@ -1,2 +1,17 @@
-# [Amundsen-neo4j](./atlas-amundsen/amundsen-main)
-# [Atlas-Hive](./atlas-amundsen/atlas-hive-docker-main)
+# Get Started
+
+```bash
+git clone https://github.com/Chaoqun-Guo/LE.git
+```
+
+# Set Up as follows
+
+## [Docker](./docker)
+
+## [Atlas-Hive-Hadoop](./atlas)
+
+## [Superset](./superset)
+
+## [Amundsen-neo4j](./amundsen/)
+
+
