@@ -8,7 +8,7 @@ ADD conf/hive-env.sh $HIVE_HOME/conf
 ADD conf/atlas-application.properties $HIVE_HOME/conf
 ADD --chown=1000:1000 sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz /opt
 ADD --chown=1000:1000 mysql-connector-java-5.1.49.jar /opt
-ADD --chown=1000:1000 --chmod=744 conf/sqoop-import-from-mysql-to-hive.sh /opt
+ADD --chown=1000:1000 conf/sqoop-import-from-mysql-to-hive.sh /opt
 
 RUN mv /opt/sqoop-1.4.7.bin__hadoop-2.6.0 /opt/sqoop-1.4.7
 
@@ -16,7 +16,8 @@ ADD --chown=1000:1000 conf/sqoop-env.sh /opt/sqoop-1.4.7/conf
 
 RUN cp /opt/hive/lib/hive-common-2.3.2.jar /opt/sqoop-1.4.7/lib && \
     cp /opt/hadoop-2.7.4/share/hadoop/mapreduce/*.jar /opt/sqoop-1.4.7/lib && \
-    mv /opt/mysql-connector-java-5.1.49.jar /opt/sqoop-1.4.7/lib
+    mv /opt/mysql-connector-java-5.1.49.jar /opt/sqoop-1.4.7/lib && \
+    chmod 744 /opt/sqoop-import-from-mysql-to-hive.sh
 
 ENV SQOOP_HOME /opt/sqoop-1.4.7
 ENV PATH $SQOOP_HOME/bin:$PATH
