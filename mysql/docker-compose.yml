@@ -1,10 +1,8 @@
 version: "3"
 services:
-
   mysql:
     image: mysql:5.7
 #    restart: always
-
     container_name: mysql
     command:
       [
@@ -18,11 +16,9 @@ services:
       MYSQL_DATABASE: db_test
     ports:
       - 3306:3306
-#      - 33060:33060
     volumes:
       - ./data/:/var/lib/mysql
       - ./etc/mysql:/etc/mysql
-
 networks:
   default:
     external:
