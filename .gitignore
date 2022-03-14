@@ -32,4 +32,4 @@
 ./mysql/data
 ./mysql/etc
 
-./docker
+**/docker
