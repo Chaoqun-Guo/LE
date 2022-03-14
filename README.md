@@ -6,7 +6,7 @@ git clone https://github.com/Chaoqun-Guo/LE.git
 
 # Set Up as follows
 
-## [Docker](./docker)
+<!-- ## [Docker](./docker) -->
 
 ## [Atlas](./atlas)
 

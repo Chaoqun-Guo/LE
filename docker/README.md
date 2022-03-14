@@ -1,4 +1,4 @@
-# Docker & Docker-compose
+<!-- # Docker & Docker-compose
 
 **Notice! All projects are deployed on docker, please move to step regarding the installation and use of docker and
 docker-compose**
@@ -188,4 +188,4 @@ For example:
 ```bash
 $ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
-  
+   -->
