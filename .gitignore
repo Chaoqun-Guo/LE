@@ -33,3 +33,5 @@
 ./mysql/etc
 
 **/docker
+
+./atlas_amundsen_import.md

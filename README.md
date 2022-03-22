@@ -15,4 +15,3 @@ git clone https://github.com/Chaoqun-Guo/LE.git
 ## [Amundsen](./amundsen)
 
 
-./atlas_amundsen_import.md
