@@ -1,0 +1,18 @@
+version: '3'
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    restart: unless-stopped
+    container_name: sql_server
+    ports:
+      - 1433:1433
+      - 14330:14330
+
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=SA2022@2022SA
+      - TZ=Asia/Shanghai
+
+#    volumes:
+#      - ./opt:/opt
+#      - ./var:/var/opt
